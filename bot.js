@@ -187,7 +187,7 @@ client.on('message', message => {
         let muteRole = message.guild.roles.find("name", "Muted");
         let time = messageArray[2];
         if(message.content.startsWith(prefix + "mute")) {
-          if(!message.channel.guild) return message.reply message.channel.send("هذا الامر للسيرفرات فقط :no_entry: ");
+          if(!message.channel.guild) return message.reply("هذا الامر للسيرفرات فقط :no_entry: ");
             if(!message.member.hasPermission('ADMINISTATOR')) return message.channel.send('**لا تملك برمشن** `ADMINISTATOR`' );
             if(!mutePerson) return message.channel.send('**Mention Someone**')
             if(mutePerson === message.author) return message.channel.send('** :no_entry: لا تستطيع اعطاء نفسك ميوت**');
