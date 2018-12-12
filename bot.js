@@ -295,7 +295,7 @@ client.on('message', message => {
         
          message.author.sendMessage(`
          **
-        ${member}
+        
         [❖═════ Loyalty Commands ═══════❖]
         
         『-clear / لحذف الشات 』
