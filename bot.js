@@ -1,7 +1,5 @@
 const Discord = require('discord.js');
-const fs = require('fs');
 const client = new Discord.Client();
-const ar = JSON.parse(fs.readFileSync(`AutoRole.json`, `utf8`))
 const prefix = "*"
 const devs = ['461386341146558475'];
 
@@ -332,7 +330,10 @@ client.on('message', message => {
           client.on('message', message => {
             if (message.author.bot) return;
              if (message.content === "رابط") {
-             message.channel.send('**تفضل الرابط :**
-             https://discord.gg/jVKaFbj');
+             message.channel.send('**تفضل الرابط :**');
+             message.channel.send('https://discord.gg/jVKaFbj');
+             }
+          });
+
 
 client.login(process.env.BOT_TOKEN);
