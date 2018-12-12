@@ -1,12 +1,12 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = "*"
+const prefix = "="
 const devs = ['461386341146558475'];
 
 
 
 client.on('message', message => {
-    const prefix = "-";
+
       if (message.author.kick) return;
       if (!message.content.startsWith(prefix)) return;
      
