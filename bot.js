@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = "="
+const prefix = "-"
 const devs = ['461386341146558475'];
 
 
@@ -15,7 +15,7 @@ client.on('message', message => {
      
       let args = message.content.split(" ").slice(1);
      
-      if (command == "kick") {
+    if (message.content.startsWith(prefix + "kick")) {
                    if(!message.channel.guild) return;
              
       if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("You Don't Have KICK_MEMBERS Permission").then(msg => msg.delete(5000));
@@ -63,7 +63,7 @@ client.on('message', message => {
         let args = message.content.split(" ");
         let command = args[0];
     
-        if(command === prefix + 'ban') {
+            if (message.content.startsWith(prefix + "ban")) {
           if(!message.member.hasPermission("BAN_MEMBERS")) return message.reply('انت لا تملك الصلاحيات اللازمة').then(msg => {
             msg.delete(3500);
             message.delete(3500);
@@ -127,7 +127,7 @@ client.on('message', message => {
     
     client.on('message', message => {
     
-      if(command === prefix + 'mc') {
+         if (message.content.startsWith(prefix + "mc")) {
                             if(!message.channel.guild) return message.reply(' هذا الامر فقط للسيرفرات !!');
     
     if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' ليس لديك صلاحيات');
@@ -138,7 +138,7 @@ client.on('message', message => {
                    message.reply("تم تقفيل الشات ✅ ")
                });
                  }
-                 if(command === prefix + 'unmc') {
+                   if (message.content.startsWith(prefix + "unmc")) {
         if(!message.channel.guild) return message.reply(' هذا الامر فقط للسيرفرات !!');
     
     if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('ليس لديك صلاحيات');
@@ -267,7 +267,7 @@ client.on('message', message => {
       });
 
       client.on("message", (message) => {
-        if (message.content.startsWith("-cv")) {
+        if (message.content.startsWith(prefix + "cv")) {
                     if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
                 let args = message.content.split(" ").slice(1);
             message.guild.createChannel(args.join(' '), 'voice');
@@ -276,7 +276,7 @@ client.on('message', message => {
         }
         });
         client.on("message", (message) => {
-        if (message.content.startsWith("-ct")) {
+        if (message.content.startsWith(prefix + "ct")) {
                     if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
                 let args = message.content.split(" ").slice(1);
             message.guild.createChannel(args.join(' '), 'text');
