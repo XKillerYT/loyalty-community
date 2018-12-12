@@ -219,30 +219,7 @@ client.on('message', message => {
         }
     });
 
-    client.on("message",(message) => {
-        if (message.channel.type !== "text") return;
-        if (!message.content.startsWith(prefix)) return;
-            if(message.content.startsWith(prefix + "temp on")) {
-                if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.reply("** You Don't Have Permission `Manage channels` To Do This Command");
-                temp[message.guild.id] = {
-                    work : true,
-                    channel : "Not Yet"
-                };
-                message.guild.createChannel("اضغط لصنع روم مؤقت", 'voice').then(c => {
-                    c.setPosition(1);
-                    temp[message.guild.id].channel = c.id
-                    message.channel.send("** Done.**");
-                });
-            if(message.content.startsWith(prefix + "temp off")) {
-                if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.reply("** You Don't Have Permission `Manage channels` To Do This Command");
-            message.guild.channels.get(temp[message.guild.id]).delete();
-                temp[message.guild.id] = {
-                    work : false,
-                    channel : "Not Yet"
-                };
-            message.channel.send("** Done.**");
-        };
-    }})
+
 
     client.on('message',async msg => {
         
@@ -306,8 +283,6 @@ client.on('message', message => {
         『-ban / لاعطاء شخص باند من الدسكورد 』
         『-ct / لانشاء روم كتابي 』
         『-cv / لانشاء روم صوتي 』
-        『-temp on / لتشغيل الرومات المؤقتة 』
-        『-temp off / لاطفاء الرومات المؤقتة 』
         『-c-channel / لانشاء روم يكون بعدد اعضاء السيرفر 』
 
         
